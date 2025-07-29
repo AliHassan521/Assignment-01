@@ -106,24 +106,145 @@ namespace HelloWorld
             }
         }
 
+        static void fibonacci()
+        {
+            Console.WriteLine("Enter number");
+            int num = Convert.ToInt32(Console.ReadLine());
+            int a = 0,b = 1;
+            for(int i = 0;i < num;i++){
+                Console.Write(a + " ");
+                int c = a + b;
+                a = b;
+                b = c;
+            }
+        )
+
         static void prime()
         {
             Console.WriteLine("Enter number to check prime");
             int num = Convert.ToInt32(Console.ReadLine());
-            if (num < 2) 
-            {
-                Console.WriteLine("Not prime");
-            }
+            bool isPrime = num > 1;
             for (int i = 2; i < num; i++)
             {
                 if(num % i == 0)
                 {
-                    Console.WriteLine("Not prime");
+                    isPrime = false;
+                    break;
                 }
             }
 
-            Console.WriteLine("Prime");
+            Console.WriteLine(isPrime ? "Prime" : "Not prime");
         }
+
+        static void GCD(){
+        Console.WriteLine("Enter two numbers to get gcd");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+        int num2 = Convert.ToInt32(Console.ReadLine());
+        while(num2 != 0){
+            int temp = num2;
+            num2 = num1 % temp;
+            num1 = temp;
+          }
+          Console.WriteLine("GCD " + num1);
+        }
+
+        static void calculator(){
+        Console.WriteLine("Enter two numbers");
+        int a = Convert.ToInt32(Console.ReadLine());
+        int b = Convert.ToInt32(Console.ReadLine());
+        char op = Console.ReadLine()[0];
+        
+        switch(op){
+            case '+':
+               Console.WriteLine(a + b);
+               break;
+            case '-':
+               Console.WriteLine(a - b);
+               break;
+            case '*':
+               Console.WriteLine(a * b);
+               break;
+            case '/':
+               Console.WriteLine(a / b);
+               break;
+            case '%':
+               Console.WriteLine(a % b);
+               break;
+            default:
+               Console.WriteLine("Invalid input");
+               break;
+        }
+    }
+
+        static void digCount(){
+        Console.WriteLine("Enter number");
+            int num = Convert.ToInt32(Console.ReadLine());
+            int count = 0;
+            while(num > 0)
+            {
+                int digit = num % 10;
+                count++;
+                num /= 10;
+            }
+
+            Console.WriteLine("Total digits " + count);
+    }
+
+            static void palindrom()
+        {
+            Console.WriteLine("Enter number to check palindrom");
+            int num = Convert.ToInt32(Console.ReadLine());
+            int temp = num;
+            int rev = 0;
+            while(temp > 0)
+            {
+                int digit = temp % 10;
+                rev = (rev * 10) + digit;
+                temp /= 10;
+            }
+            
+            if (num == rev){
+                Console.WriteLine("Palindrom");
+            }
+            else{
+                Console.WriteLine("Not a palindrom");
+            }
+            
+        }
+
+            static void digSum()
+        {
+            Console.WriteLine("Enter number");
+            int num = Convert.ToInt32(Console.ReadLine());
+            int sum = 0;
+            while(num > 0)
+            {
+                sum += num % 10;
+                num /= 10;
+            }
+            Console.WriteLine("digit sum " + sum);
+        }
+
+            static void armstrong()
+        {
+            Console.WriteLine("Enter number to reverse");
+            int num = Convert.ToInt32(Console.ReadLine());
+            int temp = num;
+            int sum = 0;
+            while(temp > 0)
+            {
+                int digit = temp % 10;
+                sum += digit * digit * digit;
+                temp /= 10;
+            }
+            if(num == sum){
+                Console.WriteLine("Armstrong");
+            }
+            else{
+                Console.WriteLine("Not Armstrong");
+            }
+        }
+            
         static void Main(string[] args)
         {
             Console.WriteLine("Enter task number");
@@ -151,8 +272,29 @@ namespace HelloWorld
                 case 7:
                     leap();
                     break;
+                case 8:
+                    fibonacci();
+                    break;
                 case 9:
                     prime();
+                    break;
+                case 10:
+                    GCD();
+                    break;
+                case 11:
+                    calculator();
+                    break;
+                case 12:
+                    digCount();
+                    break;
+                case 13:
+                    palindrom();
+                    break;
+                case 14:
+                    digSum();
+                    break;
+                case 15:
+                    armstrong();
                     break;
             }
         }
