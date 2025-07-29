@@ -244,6 +244,22 @@ namespace HelloWorld
                 Console.WriteLine("Not Armstrong");
             }
         }
+
+            static void minmax()
+        {
+            Console.WriteLine("Enter array size");
+            int n = Convert.ToInt32(Console.ReadLine());
+             int[] arr = new int[n];
+            for(int i = 0;i < n;i++){
+               arr[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            int max = arr[0], min = arr[0];
+            foreach(int num in arr){
+                if(num > max){ max = num; }
+                if(num > min){ min = num; }
+            }
+            Console.WriteLine($"Max in array is {max} and Min in array is {min}");
+        }
             
         static void Main(string[] args)
         {
@@ -295,6 +311,9 @@ namespace HelloWorld
                     break;
                 case 15:
                     armstrong();
+                    break;
+                case 16:
+                    minmax();
                     break;
             }
         }
