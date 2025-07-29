@@ -260,6 +260,119 @@ namespace HelloWorld
             }
             Console.WriteLine($"Max in array is {max} and Min in array is {min}");
         }
+
+            static void linearSerach()
+{
+    Console.WriteLine("Enter search number");
+    int n = Convert.ToInt32(Console.ReadLine());
+    int[] arr = {1,2,4,7,8,5,0,3};
+    bool isFound = false;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] == n) {
+            isFound = true;
+            break;
+        }
+    }
+
+    Console.WriteLine(isFound ? "Found" : "Not found");
+}
+
+            static void sorting()
+{
+    int[] arr = { 1, 2, 4, 7, 8, 5, 0, 3 };
+    for (int i = 0; i < arr.Length; i++)
+    {
+        for (int j = 0;j < arr.Length; j++)
+        {
+            if (arr[j] > arr[i])
+            {
+               (arr[j], arr[i]) = (arr[i], arr[j]);
+            }
+        }
+    }
+
+    for(int i = 0;i < arr.Length; i++)
+    {
+        Console.Write(arr[i] + " ");
+    }
+}
+
+            static void evenoddCount()
+{
+    int[] arr = { 1, 2, 4, 7, 8, 5, 0, 3 };
+    int even = 0, odd = 0;
+    foreach(int num in arr)
+    {
+       if(num % 2 == 0) {  even++; }
+       else { odd++; }
+    }
+
+    Console.WriteLine($"Total even {even} and total odd {odd}");
+}
+
+             static void sortName()
+ {
+     List<string> names = new List<string> { "Ali", "Hassan", "Azhar", "Rizwan" };
+     names.Sort();
+     foreach(string name in names)
+     {
+         Console.WriteLine(name);
+     }
+ }
+
+            static void frequency()
+{
+    int[] arr = { 1, 2, 2, 3, 1, 4, 2, 5, 3 };
+    Dictionary<int, int> freq = new Dictionary<int, int>();
+    foreach (int num in arr)
+    {
+        if (freq.ContainsKey(num))
+        {
+            freq[num]++;
+        }
+        else
+        {
+            freq.Add(num, 1);
+        }
+    }
+    Console.WriteLine("Element Frequencies:");
+    foreach (KeyValuePair<int, int> entry in freq)
+    {
+        Console.WriteLine($"Element: {entry.Key}, Frequency: {entry.Value}");
+    }
+}
+
+            static void strPalindrom()
+{
+    Console.WriteLine("Enter string");
+    string str = Console.ReadLine();
+    string s = "";
+    for (int i = str.Length - 1;i >= 0;i--)
+    {
+        s += str[i];
+    }
+
+    Console.WriteLine(s == str ? "Palindrom" : "Not palindrom");
+}
+
+            static void matrix()
+{
+    int[,] a = { { 1, 2, 3, }, { 4, 5, 6 } };
+    int[,] b = { { 1, 2, 3, }, { 4, 5, 6 } };
+
+    int[,] sum = new int[3, 3];
+
+    for(int i = 0;i < 3; i++)
+    {
+        for(int j = 0;j < 3; j++)
+        {
+            sum[i,j] = a[i, j] + b[i, j];
+            Console.Write(sum[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
             
         static void Main(string[] args)
         {
@@ -314,6 +427,30 @@ namespace HelloWorld
                     break;
                 case 16:
                     minmax();
+                    break;
+                case 17:
+                    linearSearch();
+                    break;
+                case 18:
+                    sorting();
+                    break;
+                case 19:
+                    evenoddCount();
+                    break;
+                case 20;
+                    sortName();
+                    break;
+                case 21:
+                    frequency();
+                    break;
+                case 22:
+                    vowelCount();
+                    break;
+                case 23:
+                    strPalindrom();
+                    break;
+                case 24:
+                    matrix();
                     break;
             }
         }
